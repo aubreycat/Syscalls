@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <tlhelp32.h>
-#include "syscall.h" // Include the new header file
+#include "syscall.h"
 
 // Function prototypes
 void DumpExportedFunctions(void* libHandle, bool onlyNtFunctions, FILE* logFile);
@@ -10,7 +10,7 @@ void CheckIfFunctionHooked(const char* functionName, DWORD* functionAddress, boo
 void ListLoadedModules(FILE* logFile);
 void PrintBanner(FILE* logFile);
 
-// List all loaded modules in the current process
+// List all loaded modules in the current process :3
 void ListLoadedModules(FILE* logFile) {
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     HANDLE hSnapshot = CreateToolhelp32Snapshot(TH32CS_SNAPMODULE, 0);
@@ -32,7 +32,7 @@ void ListLoadedModules(FILE* logFile) {
     RESET_COLOR();
 }
 
-// Dump exported functions from a DLL and check if they're hooked
+// Dump exported functions from a DLL and check if they're hooked!!! ^-^
 void DumpExportedFunctions(void* libHandle, bool onlyNtFunctions, FILE* logFile) {
     MY_IMAGE_DOS_HEADER* dosHeader = (MY_IMAGE_DOS_HEADER*)libHandle;
     IMAGE_NT_HEADERS* ntHeaders = (IMAGE_NT_HEADERS*)((BYTE*)libHandle + dosHeader->e_lfanew);
